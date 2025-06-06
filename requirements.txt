@@ -1,5 +1,5 @@
 pytest~=8.4.0
-allure-pytest
+allure-pytest>=2.14.2
 selene>=2.0.0rc9
 Appium-Python-Client~=5.1.1
 allure-python-commons~=2.14.2
