@@ -7,6 +7,8 @@ from appium import webdriver
 from selene import browser
 from dotenv import load_dotenv
 
+from utils import attach
+
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
     load_dotenv()
@@ -42,6 +44,10 @@ def mobile_management():
         browser.config.timeout = float(os.getenv('timeout', '10.0'))
 
     yield
+
+    attach.add_screenshot(browser)
+    attach.add_xml(browser)
+    attach.add_video(browser)
 
     with allure.step('Close app session'):
         browser.quit()
